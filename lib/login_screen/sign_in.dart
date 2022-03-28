@@ -4,6 +4,7 @@ import 'package:grocery_shop_app/login_screen/sign_up.dart';
 import 'package:grocery_shop_app/login_screen/location.dart';
 import 'package:grocery_shop_app/login_screen/forget_password.dart';
 import 'package:grocery_shop_app/screens/top_deal.dart';
+import 'package:grocery_shop_app/widgets/pass_txt_field.dart';
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
@@ -12,8 +13,9 @@ class SignInScreen extends StatelessWidget {
     return SafeArea(child:  Stack(
       children: [
         //SvgPicture.asset("images/katherine-chase-4MMK78S7eyk-unsplash 1.svg",),
-      Expanded(
-
+     Container(
+       height: MediaQuery.of(context).size.height,
+       width: MediaQuery.of(context).size.width,
 
          child: SvgPicture.asset("images/1647263186wet-paint-warning-sign.svg",fit: BoxFit.cover,),
         ),
@@ -44,14 +46,7 @@ top: 100,
                   ),
                 ),
 
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    prefixIcon: Icon(Icons.lock_outline),
-                    suffixIcon:
-                    Icon(Icons.visibility),
-                  ),
-                ),
+                PassTxtField (),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

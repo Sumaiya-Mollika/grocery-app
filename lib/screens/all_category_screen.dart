@@ -15,18 +15,18 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
 
   List<Product>dummyProduct=[];
   _AllCategoryScreenState(){
-    dummyProduct.add( Product(id: 'p1', name: 'Product Name',price: 120, description: 'Product description',
+    dummyProduct.add( Product(quantity: 0, id: 'p1', name: 'Product Name',price: 120, description: 'Product description',
         imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3SwX529LOk8gikjlCqVSFJ5taynRirQh0qA&usqp=CAU'),);
-    dummyProduct.add( Product(id: 'p2', name: 'Product Name',price: 120, description: 'Product description',
-        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3SwX529LOk8gikjlCqVSFJ5taynRirQh0qA&usqp=CAU'),);
-
-    dummyProduct.add( Product(id: 'p3', name: 'Product Name',price: 120, description: 'Product description',
+    dummyProduct.add( Product(quantity:0,id: 'p2', name: 'Product Name',price: 120, description: 'Product description',
         imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3SwX529LOk8gikjlCqVSFJ5taynRirQh0qA&usqp=CAU'),);
 
-    dummyProduct.add( Product(id: 'p4', name: 'Product Name',price: 120, description: 'Product description',
+    dummyProduct.add( Product(quantity:0,id: 'p3', name: 'Product Name',price: 120, description: 'Product description',
         imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3SwX529LOk8gikjlCqVSFJ5taynRirQh0qA&usqp=CAU'),);
 
-    dummyProduct.add( Product(id: 'p5', name: 'Product Name',price: 120, description: 'Product description',
+    dummyProduct.add( Product(quantity:0,id: 'p4', name: 'Product Name',price: 120, description: 'Product description',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3SwX529LOk8gikjlCqVSFJ5taynRirQh0qA&usqp=CAU'),);
+
+    dummyProduct.add( Product(quantity:0,id: 'p5', name: 'Product Name',price: 120, description: 'Product description',
         imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3SwX529LOk8gikjlCqVSFJ5taynRirQh0qA&usqp=CAU'),);
 
   }

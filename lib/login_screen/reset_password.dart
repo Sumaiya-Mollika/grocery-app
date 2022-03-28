@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grocery_shop_app/login_screen/jump_login.dart';
+import 'package:grocery_shop_app/widgets/pass_txt_field.dart';
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({Key? key}) : super(key: key);
 
@@ -10,7 +11,9 @@ class ResetPasswordScreen extends StatelessWidget {
 
         child: Stack(
           children: [
-            Expanded(
+          Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
                 child:  SvgPicture.asset("assets/images/katherine-chase-4MMK78S7eyk-unsplash 1.svg",)
             ),
             Positioned(
@@ -38,26 +41,9 @@ class ResetPasswordScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(10),
                       child: Text('you can type new password and confirm it below'),
                     ),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Password',
-                        prefixIcon: Icon(Icons.lock_outline),
-                        suffixIcon:
-                        Icon(Icons.visibility),
-                      ),
-                    ),
+                    PassTxtField(),
                     SizedBox(height: 10,),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-
-                        labelText: 'Confrim Password',
-                        prefixIcon: Icon(Icons.lock_outline),
-                        suffixIcon:
-                        Icon(Icons.visibility),
-                      ),
-                    ),
+                    PassTxtField(),
                     SizedBox(height: 15,),
                     ElevatedButton(onPressed: (){
                       Navigator.of(context).push(MaterialPageRoute(builder: (context)=>JumpLoginScreen()));

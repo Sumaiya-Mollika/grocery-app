@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-//import 'package:fluttertoast/fluttertoast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:grocery_shop_app/widgets/pass_txt_field.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -12,11 +13,14 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   String _errorMessage = '';
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Stack(children: [
-      Expanded(
-        //    color: Colors.red,
+      Container(
+  height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
 
           child:  SvgPicture.asset("assets/images/katherine-chase-4MMK78S7eyk-unsplash 1.svg",)
       ),
@@ -40,7 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('Sign In',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
+          Text('Sign Up',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
           TextFormField(
             decoration: InputDecoration(
               labelText: 'Name',
@@ -59,27 +63,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
             },
           ),
           TextFormField(
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(
               labelText: 'Phone Number',
               prefixIcon: Icon(Icons.phone),
             ),
           ),
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Password',
-              prefixIcon: Icon(Icons.lock_outline),
-              suffixIcon:
-              Icon(Icons.visibility),
-            ),
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Confrim Password',
-              prefixIcon: Icon(Icons.lock_outline),
-              suffixIcon:
-              Icon(Icons.visibility),
-            ),
-          ),
+          PassTxtField (),
+          PassTxtField (),
           Row(children: [
             IconButton(onPressed: (){}, icon:Icon( Icons.check_box_outline_blank),),
             Text('Remember me'),
@@ -88,17 +79,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
           ElevatedButton(onPressed: (){
             print('sign in');
-           // setState(() {
-           //   Fluttertoast.showToast(
-           //       msg: 'Sucessfully', //message to show toast
-           //       toastLength: Toast.LENGTH_LONG, //duration for message to show
-           //       gravity: ToastGravity.CENTER, //where you want to show, top, bottom
-           //       timeInSecForIosWeb: 1, //for iOS only
-           //       backgroundColor: Colors.red, //background Color for message
-           //       textColor: Colors.yellow, //message text color
-           //       fontSize: 16.0 //message font size
-           //   );
-           // });
+
 
           //  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationScreen()));
           },child: Padding(
@@ -114,7 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             }, child: Text('Sign In',style:TextStyle(color: Theme.of(context).primaryColor),),)
 
           ],),),
-Text(_errorMessage,style: TextStyle(color: Theme.of(context).errorColor),),
+
 
         ],),),),)
     ],
@@ -122,36 +103,37 @@ Text(_errorMessage,style: TextStyle(color: Theme.of(context).errorColor),),
     ));
   }
 
+
   void validateEmail(String val) {
     if(val.isEmpty){
       setState(() {
         _errorMessage = "Email can not be empty";
       });
 
-    //  showToastMessage(_errorMessage);
+     showToastMessage(_errorMessage);
     }else if(!EmailValidator.validate(val, true)){
       setState(() {
         _errorMessage = "Invalid Email Address";
       });
-    //  showToastMessage(_errorMessage);
+     showToastMessage(_errorMessage);
     }else{
       setState(() {
 
         _errorMessage = "";
       });
-    //  showToastMessage(_errorMessage);
+    showToastMessage(_errorMessage);
     }
   }
-  // void showToastMessage(String message){
-  //   Fluttertoast.showToast(
-  //       msg: message,
-  //       toastLength: Toast.LENGTH_SHORT,
-  //       gravity: ToastGravity.CENTER, //where you want to show, top, bottom
-  //       timeInSecForIosWeb: 1, //for iOS only
-  //       backgroundColor: Colors.red, //background Color for message
-  //       textColor: Colors.yellow, //message text color
-  //       fontSize: 16.0 //message font size
-  //   );
-  // }
+  void showToastMessage(String message){
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER, //where you want to show, top, bottom
+        timeInSecForIosWeb: 1, //for iOS only
+        backgroundColor: Theme.of(context).primaryColor, //background Color for message
+        textColor: Colors.white, //message text color
+        fontSize: 16.0 //message font size
+    );
+  }
 
 }

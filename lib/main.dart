@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_shop_app/login_screen/sign_in.dart';
+// import 'package:grocery_shop_app/screens/favorite_screen.dart';
+import 'package:grocery_shop_app/screens/nav_bars/tab_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:grocery_shop_app/provider/product_provider.dart';
 void main() {
@@ -13,30 +15,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-      MultiProvider(
-        providers:[
+      MaterialApp(
 
-          ChangeNotifierProvider.value(value: DummyProduct())
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
+      //  primarySwatch: Colors.green,
 
-        ],
-        child: MaterialApp(
-
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
-          primarySwatch: Colors.green,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch:
+        Colors.green,).copyWith(secondary: Colors.lightGreen,)
         ),
-        home:SignInScreen(),
-    ),
-      );
+
+
+      home:TabScreen(),
+    );
   }
 }
 

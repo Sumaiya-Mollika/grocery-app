@@ -14,11 +14,14 @@ class CardListTile extends StatelessWidget {
         title:  Text('Product Name',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
         subtitle: Text('Quantity'),
 
-        trailing: Column(
-          children: [
-            Text('1000',style: TextStyle(color: Theme.of(context).primaryColor,),),
-            IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart, color: Theme.of(context).primaryColor,))
-          ],
+        trailing: FittedBox(
+          child: Column(
+            
+            children: [
+              Text('1000',style: TextStyle(color: Theme.of(context).primaryColor,),),
+              IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart, color: Theme.of(context).primaryColor,))
+            ],
+          ),
         ),
       ),
     );

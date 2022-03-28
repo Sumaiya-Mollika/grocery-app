@@ -10,7 +10,9 @@ class ForgetPasswordScreen extends StatelessWidget {
 
       child: Stack(
         children: [
-          Expanded(
+     Container(
+         height: MediaQuery.of(context).size.height,
+         width: MediaQuery.of(context).size.width,
               child:  SvgPicture.asset("assets/images/katherine-chase-4MMK78S7eyk-unsplash 1.svg",)
           ),
           Positioned(child: Card(
