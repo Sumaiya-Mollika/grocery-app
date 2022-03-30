@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:grocery_shop_app/widgets/bundel_offer.dart';
 import 'package:grocery_shop_app/widgets/deal_card.dart';
-import 'package:grocery_shop_app/widgets/grid_tile_card.dart';
 import 'package:grocery_shop_app/widgets/list_tile_card.dart';
+
 class TopDealScreen extends StatefulWidget {
   const TopDealScreen({Key? key}) : super(key: key);
 
@@ -13,10 +13,12 @@ class TopDealScreen extends StatefulWidget {
 class _TopDealScreenState extends State<TopDealScreen> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
+        centerTitle: true,
         leading: IconButton(onPressed: (){},icon: Icon(Icons.arrow_back_ios,color: Colors.black,),),
         title: Text('Top Deals',style: TextStyle(color: Colors.black),),
         actions: [IconButton(onPressed: (){}, icon: Icon(Icons.search,color: Colors.black))],
@@ -26,18 +28,8 @@ class _TopDealScreenState extends State<TopDealScreen> {
           margin: EdgeInsets.symmetric(horizontal: 20),
           child: Stack(children: [Column(
             children: [
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(children: [
-                  DealCard(),
-                  DealCard(),
-                  DealCard(),
-                  DealCard(),
-                  DealCard(),
-                  DealCard(),
-                  DealCard(),  DealCard(),  DealCard(),  DealCard(),  DealCard(),
-                ],),
-              ),
+              Container(
+                  height:30,child: DealCard()),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -45,17 +37,9 @@ class _TopDealScreenState extends State<TopDealScreen> {
                   TextButton(onPressed: (){}, child: Text('View All',style: TextStyle(color: Theme.of(context).primaryColor),))
                 ],),
 
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    GridTileCard(),
-
-                    GridTileCard(),
-                    GridTileCard(),
-                    GridTileCard(),
-                  ],
-                ),
+              Container(
+                height: 140,
+                child: BundelOffer(""),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,16 +49,7 @@ class _TopDealScreenState extends State<TopDealScreen> {
                 ],),
 Container(
   height: 330,
-  child:   SingleChildScrollView(
-    child: Column(children: [
-      CardListTile(),
-      CardListTile(),
-      CardListTile(),
-      CardListTile(),
-      CardListTile(),
-      CardListTile(),
-    ],),
-  ),
+  child:   CardListTile(),
 ),
 
 
@@ -104,6 +79,8 @@ Container(
 
     );
   }
+
+
 
 
 

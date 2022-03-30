@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_shop_app/widgets/swipe_card.dart';
+
+import 'package:grocery_shop_app/widgets/payment.dart';
 
 import 'package:intl/intl.dart';
-//import 'package:time_range/time_range.dart';
+
 import 'package:grocery_shop_app/widgets/checkout_card.dart';
 import 'package:time_range/time_range.dart';
 class CheckOut extends StatefulWidget {
@@ -43,7 +46,7 @@ class _CheckOutState extends State<CheckOut> {
   @override
   void initState() {
     super.initState();
-    _timeRange = _defaultTimeRange;
+    //_timeRange = _defaultTimeRange;
   }
 
   @override
@@ -118,8 +121,8 @@ body: Column(children: [
               Text('Time',style: TextStyle(color: Colors.grey),),
               Row(
                 children: [
-                  if (_timeRange != null)
-                Text('$_timeRange'==null?'Choose Time':  ' ${_timeRange!.start.format(context)} - ${_timeRange!.end.format(context)}'),
+           
+                Text(_timeRange==null?'Choose Time':  ' ${_timeRange!.start.format(context)} - ${_timeRange!.end.format(context)}'),
 
                   IconButton(
                     onPressed:(){  showModalBottomSheet<void>(
@@ -181,13 +184,14 @@ body: Column(children: [
   ),
 
   Text('Payment Method',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
-  Container(child: Column(children: [
-    // ListTile(leading: ,)
-  ],),)
+
+  PaymentMethod(),
+  SwipeCard(),
 ],),
       
     );
   }
+
 
 
 }

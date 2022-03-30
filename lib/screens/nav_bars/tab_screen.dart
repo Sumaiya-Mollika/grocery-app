@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_shop_app/login_screen/sign_in.dart';
-import 'package:grocery_shop_app/screens/all_category_screen.dart';
 import 'package:grocery_shop_app/screens/cart_screen.dart';
+import 'package:grocery_shop_app/screens/empty_order_history.dart';
 import 'package:grocery_shop_app/screens/nav_bars/favorite_screen.dart';
-import 'package:grocery_shop_app/screens/nav_bars/history_screen.dart';
+import 'package:grocery_shop_app/screens/nav_bars/home_screen.dart';
 import 'package:grocery_shop_app/screens/nav_bars/profile_screen.dart';
 
 class TabScreen extends StatefulWidget {
@@ -21,19 +20,19 @@ class _TabScreenState extends State<TabScreen> {
   @override
   void initState() {
     _pages = [
-      {'pages':SignInScreen(), 'title': 'Sign In'},
+      {'pages':HomeScreen(), 'title': 'Home'},
 
       {
         'pages': FavoriteScreen(),
         'title': 'Favorites',
       },
       {
-        'pages': HistoryScreen(),
-        'title': 'Favorites',
+        'pages': EmptyOrderHistory(),
+        'title': 'History',
       },
       {
         'pages': ProfileScreen(),
-        'title': 'Favorites',
+        'title': 'Profile',
       }
     ];
     super.initState();
@@ -71,7 +70,7 @@ class _TabScreenState extends State<TabScreen> {
         selectedItemColor: Theme.of(context).colorScheme.secondary,
           items: [
             BottomNavigationBarItem(
-              label: 'Sign In',
+              label: 'Home',
               icon: Icon(Icons.home),
             ),
 

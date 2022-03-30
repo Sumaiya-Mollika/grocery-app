@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_shop_app/widgets/search_card.dart';
 class LocationScreen extends StatelessWidget {
   const LocationScreen({Key? key}) : super(key: key);
 
@@ -14,14 +15,7 @@ body: Column(
   children: [
     const Text('Search for your location',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
 
-    Card(
-      elevation: 5,
-      color: Colors.lightGreenAccent.shade50,
-      child: Row(children: [
-      IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
-
-      const Text('Address Search'),
-    ],),),
+    SearchCard(),
 
     Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,4 +39,5 @@ body: Column(
 ),
     ));
   }
+
 }
