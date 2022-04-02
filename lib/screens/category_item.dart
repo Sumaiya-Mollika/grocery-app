@@ -87,8 +87,9 @@ class CategoryItem extends StatelessWidget {
             footer: GridTileBar(
               title: Text('${catagoryProduct.price}',style: TextStyle(color: Theme.of(context).primaryColor,),) ,
               trailing: IconButton(onPressed: (){
-              //  cart.addItem(product.id, product.price, product.name);
-              }, icon: Icon(Icons.shopping_cart,color: Theme.of(context).primaryColor,)),
+                //cart.addItem(product.id, product.price, product.name);
+              },
+                  icon: Icon(Icons.shopping_cart,color: Theme.of(context).primaryColor,)),
 
             ),
           ),
