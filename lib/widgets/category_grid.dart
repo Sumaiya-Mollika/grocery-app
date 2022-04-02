@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_shop_app/provider/cart_provider.dart';
+import 'package:grocery_shop_app/provider/product_model.dart';
 import 'package:grocery_shop_app/provider/product_provider.dart';
 import 'package:grocery_shop_app/screens/category_item.dart';
+import 'package:grocery_shop_app/widgets/product_item.dart';
 import 'package:provider/provider.dart';
 class CategoryGrid extends StatefulWidget {
   //const CategoryGrid({Key? key,String? axis}) : super(key: key);
@@ -13,8 +16,11 @@ class CategoryGrid extends StatefulWidget {
 }
 
 class _CategoryGridState extends State<CategoryGrid> {
+
   @override
   Widget build(BuildContext context) {
+    // final product = Provider.of<Product>(context, listen: false);
+    // final cart = Provider.of<Cart>(context, listen: false);
     final productData=Provider.of<DummyProducts>(context);
     final products = productData.items;
     return GridView.builder(
@@ -30,25 +36,27 @@ class _CategoryGridState extends State<CategoryGrid> {
       itemCount:products.length,
       itemBuilder: (ctx, index)=>ChangeNotifierProvider.value(
         value: products[index],
-        child:GestureDetector(
-          onTap: (){
-            Navigator.of(context).pushNamed(CategoryItem.routeName,
-                arguments:products[index].id);
-          },
+        child:ProductItem(),
 
-          child:   GridTile(
-
-            child:  Column(
-              children: [
-                CircleAvatar(
-                  backgroundImage: NetworkImage(products[index].imageUrl),
-                  radius: 40,
-                ),
-                Text(products[index].name),
-              ],
-            ),
-          ),
-        ),
+//         GestureDetector(
+//           onTap: (){
+//             Navigator.of(context).pushNamed(CategoryItem.routeName,
+//                 arguments:products[index].id);
+//           },
+//
+//           child:   GridTile(
+//
+//             child:  Column(
+//               children: [
+//                 CircleAvatar(
+//                   backgroundImage: NetworkImage(products[index].imageUrl),
+//                   radius: 40,
+//                 ),
+//                 Text(products[index].name),
+//               ],
+//             ),
+//           ),
+//         ),
       ),
     );
   }

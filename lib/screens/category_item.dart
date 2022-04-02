@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_shop_app/model/clip.dart';
+import 'package:grocery_shop_app/provider/cart_provider.dart';
+import 'package:grocery_shop_app/provider/product_model.dart';
 import 'dart:math' as math;
 import 'package:grocery_shop_app/provider/product_provider.dart';
 import 'package:provider/provider.dart';
-class CategoryItem extends StatefulWidget {
+class CategoryItem extends StatelessWidget {
   static const routeName = '/categoryItem';
-  @override
-  _CategoryItemState createState() => _CategoryItemState();
-}
 
-class _CategoryItemState extends State<CategoryItem> {
   @override
   Widget build(BuildContext context) {
     final productId = ModalRoute.of(context)?.settings.arguments as String;
     final catagoryProduct =
     Provider.of<DummyProducts>(context, listen: false).findById(productId);
+
     return Scaffold(
       appBar:  AppBar(
         centerTitle: true,
@@ -87,7 +86,9 @@ class _CategoryItemState extends State<CategoryItem> {
             ),
             footer: GridTileBar(
               title: Text('${catagoryProduct.price}',style: TextStyle(color: Theme.of(context).primaryColor,),) ,
-              trailing: IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart,color: Theme.of(context).primaryColor,)),
+              trailing: IconButton(onPressed: (){
+              //  cart.addItem(product.id, product.price, product.name);
+              }, icon: Icon(Icons.shopping_cart,color: Theme.of(context).primaryColor,)),
 
             ),
           ),

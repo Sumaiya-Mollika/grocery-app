@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_shop_app/screens/nav_bars/tab_screen.dart';
 import 'package:swipebuttonflutter/swipebuttonflutter.dart';
 class SwipeCard extends StatefulWidget {
   const SwipeCard({Key? key}) : super(key: key);
@@ -48,7 +49,9 @@ class _SwipeCardState extends State<SwipeCard> {
                         Text('your Order id #123 Successfully placed',style: TextStyle(fontSize: 15,color: Colors.grey),),
 
                         ElevatedButton(onPressed: (){}, child:Text('Track my order')),
-                        TextButton(onPressed: (){}, child: Text('Go Home'))
+                        TextButton(onPressed: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TabScreen()));
+                        }, child: Text('Go Home'))
                       ],),
                     ),
                   );});

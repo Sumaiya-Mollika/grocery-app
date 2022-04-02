@@ -84,7 +84,10 @@ scrollDirection: Axis.horizontal,
                 ),
                 footer: GridTileBar(
                   title: Text('${topProducts[index].price}',style: TextStyle(color: Theme.of(context).primaryColor,),) ,
-                  trailing: IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart,color: Theme.of(context).primaryColor,)),
+                  trailing:  IconButton(onPressed: (){
+
+                    }, icon: Icon(Icons.shopping_cart,color: Theme.of(context).primaryColor,),
+                  ),
 
                 ),
               ),

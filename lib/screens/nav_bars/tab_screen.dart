@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_shop_app/provider/cart_provider.dart';
+import 'package:grocery_shop_app/screens/cart_item_screen.dart';
 import 'package:grocery_shop_app/screens/cart_screen.dart';
 import 'package:grocery_shop_app/screens/empty_order_history.dart';
 import 'package:grocery_shop_app/screens/nav_bars/favorite_screen.dart';
 import 'package:grocery_shop_app/screens/nav_bars/home_screen.dart';
 import 'package:grocery_shop_app/screens/nav_bars/profile_screen.dart';
+import 'package:grocery_shop_app/widgets/badge.dart';
+import 'package:provider/provider.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({Key? key}) : super(key: key);
@@ -51,14 +55,20 @@ class _TabScreenState extends State<TabScreen> {
       body: _pages[_selectedPageIndex]['pages'],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-      floatingActionButton: FloatingActionButton.small(
+      floatingActionButton:   Consumer<Cart>(
+        builder: (_, cart, ch) => Badge(
+          value: cart.itemCount.toString(),
+          child: ch,
+        ),
+        child: FloatingActionButton.small(
 
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CartScreen()));
-        },
-        child: Icon(Icons.shopping_bag_sharp),
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          onPressed: (){
+            Navigator.of(context).pushNamed(CartScreen.routeName);
+          },
+          child: Icon(Icons.shopping_bag_sharp),
 
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
 

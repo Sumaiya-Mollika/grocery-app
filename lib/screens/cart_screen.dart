@@ -5,7 +5,7 @@ import 'package:grocery_shop_app/screens/check_out_screen.dart';
 import 'package:grocery_shop_app/widgets/cart_card.dart';
 
 class CartScreen extends StatefulWidget {
-  const CartScreen({Key? key}) : super(key: key);
+  static const routeName = '/cart-screen';
 
   @override
   _CartScreenState createState() => _CartScreenState();

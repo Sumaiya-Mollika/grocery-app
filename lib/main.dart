@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_shop_app/login_screen/sign_in.dart';
+import 'package:grocery_shop_app/provider/cart_provider.dart';
+import 'package:grocery_shop_app/provider/product_model.dart';
+import 'package:grocery_shop_app/screens/cart_item_screen.dart';
+import 'package:grocery_shop_app/screens/cart_screen.dart';
 import 'package:grocery_shop_app/screens/category_item.dart';
 // import 'package:grocery_shop_app/screens/favorite_screen.dart';
 import 'package:grocery_shop_app/screens/nav_bars/tab_screen.dart';
@@ -18,6 +22,7 @@ class MyApp extends StatelessWidget {
     return
       MultiProvider(providers: [
         ChangeNotifierProvider.value(value: DummyProducts()),
+        ChangeNotifierProvider.value(value: Cart()),
         ],
         child: MaterialApp(
 
@@ -42,6 +47,7 @@ class MyApp extends StatelessWidget {
         home:TabScreen(),
           routes: {
             CategoryItem.routeName: (ctx) => CategoryItem(),
+            CartItemScreen.routeName: (ctx) => CartItemScreen(),
   },
     ),
       );
